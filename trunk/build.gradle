@@ -1,0 +1,63 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+compileJava.options.encoding = 'UTF-8'
+version = "1.0"
+
+// gradle war -Denv=local
+def env = System.getProperty("env")?:"local"
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        resources {
+            exclude "src/main/resources"
+            srcDirs = ["src/main/resources/public","src/main/resources/$env"]
+        }
+    }
+}
+
+
+dependencies {
+
+    compile "junit:junit:4.8.2"
+
+    // ------------------------------ netty --------------------------
+    compile 'org.jboss.netty:netty:3.2.9.Final'
+
+    // ---------------------------- commons --------------------------
+    compile 'commons-lang:commons-lang:2.6'
+    // compile 'commons-httpclient:commons-httpclient:3.1'
+    compile 'org.apache.httpcomponents:httpclient:4.3'
+    compile 'org.apache.httpcomponents:httpcore:4.3'
+    // ----------------------------- logback -------------------------
+    compile 'log4j:log4j:1.2.16'
+    compile 'org.slf4j:slf4j-api:1.7.4'
+    compile 'ch.qos.logback:logback-classic:1.0.11'
+    compile 'ch.qos.logback:logback-core:1.0.11'
+    compile 'ch.qos.logback:logback-access:1.0.11'
+
+    // --------------------------- datasource ------------------------
+    compile 'mysql:mysql-connector-java:5.1.11'
+
+    // ----------------------------- persist -------------------------
+    compile 'org.mybatis:mybatis:3.2.0'
+
+    // ------------------------------ jackson ------------------------
+    compile 'com.fasterxml.jackson.core:jackson-core:2.2.2'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.2.2'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.2.2'
+
+    // ------------------------------ other --------------------------
+    compile 'org.jsoup:jsoup:1.7.2'
+    compile 'org.htmlparser:htmlparser:2.1'
+    compile 'org.htmlparser:htmllexer:2.1'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'org.quartz-scheduler:quartz:2.2.1'
+
+}
+
