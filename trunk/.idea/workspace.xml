@@ -15,13 +15,9 @@
     <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/util/TextParseUtil.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418834234" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/util/SiteId.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418834235" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/job/qiqishu/QiqishuScanUpdateJob.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418834235" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/school/extractor/pengyou/PengyouSchollExtractor.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418834235" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/extractor/qiqishu/QiqishuBookExtractor.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418834235" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/extractor/qiqishu/QiqishuSpiderPageExtractor.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418834235" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/school/extractor/renren/RenRenNotify.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418834235" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/school/extractor/renren/RenrenSchoolExtractor.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418835306" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/school/extractor/renren/GenerateSQL.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418834235" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/job/BookSpiderTask.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386418834235" ignored="false" />
+    <file path="/JSONUtil.java" changelist="8e1cad9e-7123-48ec-bb6e-696b16f2eba2" time="1386473526043" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +163,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/vernon/spider/core/http/HttpClientUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vernon/spider/book/extractor/qiqishu/QiqishuUpdateExtractor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vernon/spider/core/SpiderJob.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/util/JSONUtil.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/vernon/webspider/core/util/JSONUtil.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/vernon/webspider/core/util/JSONUtilTest.java" />
       </list>
     </option>
   </component>
@@ -211,6 +210,120 @@
               <option name="myItemId" value="vernon-webspider" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; 1.7 &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vernon-webspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; 1.7 &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rt.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vernon-webspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; 1.7 &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rt.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vernon-webspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; 1.7 &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rt.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="concurrent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vernon-webspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; 1.7 &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rt.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vernon-webspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -233,6 +346,80 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vernon-webspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vernon-webspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vernon-webspider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webspider" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,7 +586,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3273906" sideWeight="0.67094016" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29254457" sideWeight="0.67094016" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -472,123 +659,119 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/local/logback.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/util/BCConvertUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="91" selection-start="196" selection-end="196" vertical-scroll-proportion="0.047923323">
+        <state line="28" column="20" selection-start="827" selection-end="827" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/local/constant.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/util/TextFilterUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="21" selection-start="41" selection-end="41" vertical-scroll-proportion="0.023961661">
+        <state line="18" column="7" selection-start="188" selection-end="188" vertical-scroll-proportion="-0.8663595">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/domain/BaseBook.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/util/StringUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="306" selection-end="306" vertical-scroll-proportion="-0.03649635">
+        <state line="22" column="7" selection-start="336" selection-end="336" vertical-scroll-proportion="-2.6175115">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/extractor/qiqishu/QiqishuBookExtractor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/util/SpiderUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
+        <state line="51" column="26" selection-start="1522" selection-end="1522" vertical-scroll-proportion="-22.078669">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/http/DecompressHttpResponseInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/util/SpecialWordUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="40" selection-start="478" selection-end="478" vertical-scroll-proportion="0.78740156">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/extractor/qiqishu/QiqishuUpdateExtractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="13" selection-start="871" selection-end="871" vertical-scroll-proportion="0.14746544">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/http/HttpClientUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="22" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.15885022">
+        <state line="61" column="43" selection-start="2231" selection-end="2231" vertical-scroll-proportion="0.24332345">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.quartz-scheduler/quartz/2.2.1/source/4e9e3085eb99c52dc368d144bd3bc61e7aab87ad/quartz-2.2.1-sources.jar!/org/quartz/impl/JobExecutionContextImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/util/ResourceUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="13" selection-start="1031" selection-end="1031" vertical-scroll-proportion="0.12462908">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/http/StringResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="22" selection-start="101" selection-end="101" vertical-scroll-proportion="0.11127596">
+        <state line="24" column="24" selection-start="355" selection-end="355" vertical-scroll-proportion="0.44510385">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="11" selection-start="442" selection-end="442" vertical-scroll-proportion="0.043026708">
+        <state line="58" column="33" selection-start="1881" selection-end="1885" vertical-scroll-proportion="0.84569734">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/image/Response.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/vernon/webspider/core/util/JSONUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="3" selection-start="241" selection-end="241" vertical-scroll-proportion="0.1454006">
+        <state line="11" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="0.24480712">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/util/JSONUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="7" selection-start="2060" selection-end="2060" vertical-scroll-proportion="0.22106825">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#534#548#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.quartz-scheduler/quartz/2.2.1/source/4e9e3085eb99c52dc368d144bd3bc61e7aab87ad/quartz-2.2.1-sources.jar!/org/quartz/Scheduler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/util/ThreadUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="17" selection-start="4308" selection-end="4308" vertical-scroll-proportion="-3.8426626">
+        <state line="36" column="28" selection-start="800" selection-end="800" vertical-scroll-proportion="-0.42433235">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/PageTemplatePortal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="744" selection-end="744" vertical-scroll-proportion="-1.0423601">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/Extractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="25" selection-start="962" selection-end="962" vertical-scroll-proportion="-2.5627837">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/AbstractSpider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="35" selection-start="1749" selection-end="1749" vertical-scroll-proportion="0.26557863">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/ISpider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="26" selection-start="220" selection-end="220" vertical-scroll-proportion="0.24480712">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/SpiderSite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="28" selection-start="181" selection-end="181" vertical-scroll-proportion="0.28931752">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/core/SpiderJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="55" selection-start="650" selection-end="650" vertical-scroll-proportion="0.51186943">
+        <state line="16" column="0" selection-start="301" selection-end="301" vertical-scroll-proportion="0.3560831">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.quartz-scheduler/quartz/2.2.1/source/4e9e3085eb99c52dc368d144bd3bc61e7aab87ad/quartz-2.2.1-sources.jar!/org/quartz/JobExecutionContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="16" selection-start="5322" selection-end="5322" vertical-scroll-proportion="0.51186943">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.quartz-scheduler/quartz/2.2.1/source/4e9e3085eb99c52dc368d144bd3bc61e7aab87ad/quartz-2.2.1-sources.jar!/org/quartz/JobDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="17" selection-start="1599" selection-end="1599" vertical-scroll-proportion="0.74886537">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vernon/webspider/book/domain/BaseCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="173" selection-end="173" vertical-scroll-proportion="0.24962178">
-          <folding />
         </state>
       </provider>
     </entry>
