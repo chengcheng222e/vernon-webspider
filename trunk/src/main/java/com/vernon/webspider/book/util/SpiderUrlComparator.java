@@ -26,6 +26,8 @@ public class SpiderUrlComparator
 		return 1;
 	}
 
+    // ----------------------------- setter / getter methods ----------------------------------
+
 	public String getRegex() {
 		return regex;
 	}

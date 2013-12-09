@@ -64,7 +64,8 @@ public class TextParseUtil {
 	 * 
 	 * @param source
 	 * @param regex
-	 * @param startIndex
+	 * @param index
+	 * @param groupIndex
 	 * @return
 	 */
 	public final static String parse(String source, String regex, int index, int groupIndex) {

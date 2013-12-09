@@ -14,7 +14,8 @@ import com.vernon.webspider.core.http.URLWrap;
 import com.vernon.webspider.core.util.ResourceUtil;
 import com.vernon.webspider.core.util.ThreadUtil;
 import com.vernon.webspider.core.Extractor;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -28,7 +29,7 @@ import java.net.MalformedURLException;
 public class CoverExtractor
 		extends Extractor {
 
-	private static final Logger LOGGER = Logger.getLogger(CoverExtractor.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CoverExtractor.class);
 
 	private Cover cover;
 	private ResourceUtil.Type type;
@@ -37,6 +38,7 @@ public class CoverExtractor
 	public Cover extract() throws MalformedURLException {
 		LOGGER.info("CoverExtractor extract!");
 		try {
+            // 当前执行的 URL
 			URLWrap wrap = new URLWrap(getInputUrl());
 			Pair<Integer, byte[]> result = HttpClientUtil.getByteArrayByGET(wrap, Charset.GB2312, Browser.IE7_ON_WINXP,
 					60000);

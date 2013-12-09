@@ -10,31 +10,21 @@ import java.util.Random;
 
 /**
  * 资源工具
- * 
- * @author Vernon.Chen
  *
+ * @author Vernon.Chen
  */
 @SuppressWarnings("serial")
 public class ResourceUtil
         implements Serializable {
 
     public enum Type {
-		SPACE("space"), //
-		BBS("bbs"), //
-		ALBUM("album"), //
-		NEWS("news"), //
-		MOVIE("movie"), //
-		TV("tv"), //
-		PERFORMANCE("performance"), //
-		STARS("stars"), //
-		CHAT("chat"), //
-		IM("im"), //
-		MUSIC("music"), //
-		BOOK("book"), //
-		PICTURE("picture"), //
-		ANIME("anime"), //
-		PAYMUSIC("paymusic"), //
-		OTHER("other");
+        BBS("bbs"), //
+        ALBUM("album"), //
+        NEWS("news"), //
+        MUSIC("music"), //
+        BOOK("book"), //
+        PICTURE("picture"), //
+        OTHER("other");
 
         private String dir;
 
@@ -43,7 +33,7 @@ public class ResourceUtil
         }
 
         /**
-         *  @return the dir 
+         * @return the dir
          */
         public String getDir() {
             return this.dir;

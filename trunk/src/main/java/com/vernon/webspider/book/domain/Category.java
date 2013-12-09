@@ -32,6 +32,7 @@ public class Category
 		YQ, // 都市言情
 		LS, // 历史军事
 		WY, // 网游动漫
+
 		ZT, // 侦探推理
 		LY, // 恐怖灵异
 		KH, // 科幻小说
