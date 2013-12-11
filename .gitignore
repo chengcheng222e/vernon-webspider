@@ -1,11 +1,6 @@
 out
 .idea
-<<<<<<< HEAD
 .gradle
-=======
-.gradle
-.gitignore
 *.iml
 *.ipr
 *.iws
->>>>>>> d6381f7d46767aa73f827ba3dd2a22b2b14f85e2
