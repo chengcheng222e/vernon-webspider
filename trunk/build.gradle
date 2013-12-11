@@ -26,9 +26,6 @@ dependencies {
 
     compile "junit:junit:4.8.2"
 
-    // ------------------------------ netty --------------------------
-    compile 'org.jboss.netty:netty:3.2.9.Final'
-
     // ---------------------------- commons --------------------------
     compile 'commons-lang:commons-lang:2.6'
     // compile 'commons-httpclient:commons-httpclient:3.1'

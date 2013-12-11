@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import com.vernon.webspider.core.task.TaskExecutor;
 import org.apache.log4j.Logger;
 
 import com.vernon.webspider.book.extractor.qiqishu.QiqishuBookExtractor;
@@ -31,15 +32,20 @@ public class QiqishuSpiderJob
 
 	@Override
 	protected void doExecute() {
-		if (!run) {
-			QiqishuBookExtractor extractor = new QiqishuBookExtractor(Charset.GBK.getValue());
-			BookSpiderTask bookSpiderTask = new BookSpiderTask(extractor);
-//			TaskExecutor.addTask(bookSpiderTask, 5000);
-			run = true;
-		}
-		// QIQISHU 最近更新2页
+
+//        if (!run) {
+//            // 亲亲小说网站编码为 GBK
+//            QiqishuBookExtractor extractor = new QiqishuBookExtractor(Charset.GBK.getValue());
+//            BookSpiderTask bookSpiderTask = new BookSpiderTask(extractor);
+//            // 这里调用 bookSpiderTask execute 访问, 抓取
+//            TaskExecutor.addTask(bookSpiderTask, 5000);
+//            run = true;
+//        }
+
+        // QIQISHU 最近更新2页
 		List<String> spiderUrls = new ArrayList<String>();
 		for (int i = 1 ; i < 3 ; i++) {
+            // http://www.77shu.com/page_lastupdate_2.html
 			spiderUrls.add(SiteId.QIQISHU.getDomain() + "/page_lastupdate_" + i +".html");
 		}
 		Extractor extractor = new QiqishuSpiderPageExtractor(Charset.GBK.getValue());

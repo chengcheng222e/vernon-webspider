@@ -11,7 +11,7 @@ import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 
 /**
- * 
+ * 亲亲小说页面拔取
  * 
  * @author Vernon.Chen
  *

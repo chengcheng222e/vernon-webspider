@@ -4,10 +4,7 @@
 package com.vernon.webspider.core.http;
 
 import com.vernon.webspider.core.collection.Pair;
-import org.apache.http.Header;
-import org.apache.http.HttpResponseInterceptor;
-import org.apache.http.HttpVersion;
-import org.apache.http.NameValuePair;
+import org.apache.http.*;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.HttpRequestRetryHandler;
@@ -166,18 +163,18 @@ public class HttpClientUtil {
 				URL += URLEncodedUtils.format(pairs, charset.getValue());
 			}
 			get = new HttpGet(URL);
-			HttpParams params = get.getParams();
-			params.setParameter(CoreProtocolPNames.USER_AGENT, browser.getUA());
-			params.setParameter(CoreProtocolPNames.HTTP_CONTENT_CHARSET, charset.getValue());
-			params.setParameter(CoreConnectionPNames.SO_TIMEOUT, timeout);
-			get.setParams(params);
-			get.setHeaders(getInitHeaders(urlWrap));
+            // 暂时就用默认的 getInitHeaders
+//            get.setHeader(HttpHeaders.USER_AGENT, browser.getUA());
+//            get.setHeader(HttpHeaders.CONTENT_ENCODING, charset.getValue());
+//            get.setHeader(HttpHeaders.TIMEOUT, timeout + "");
+//            get.setHeader(HttpHeaders.REFERER, urlWrap.getURLRootAndPath());
+            get.setHeaders(getInitHeaders(urlWrap));
 			return httpClient.execute(get, new StringResponseHandler(charset));
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
+		} finally {// 记得一定要释放资源
 			abortConnection(get);
 		}
 		return null;
