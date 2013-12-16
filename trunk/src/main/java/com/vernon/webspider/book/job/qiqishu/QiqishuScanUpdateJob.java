@@ -5,13 +5,8 @@
  */
 package com.vernon.webspider.book.job.qiqishu;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
-import org.apache.log4j.Logger;
-
 import com.vernon.webspider.book.extractor.qiqishu.QiqishuUpdateExtractor;
+import com.vernon.webspider.book.util.SiteId;
 import com.vernon.webspider.core.Extractor;
 import com.vernon.webspider.core.LinkFilter;
 import com.vernon.webspider.core.SpiderJob;
@@ -19,6 +14,12 @@ import com.vernon.webspider.core.http.Charset;
 import com.vernon.webspider.core.task.Task;
 import com.vernon.webspider.core.task.TaskExecutor;
 import com.vernon.webspider.core.util.HtmlParserUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 亲亲小说网扫描更新工作
@@ -29,7 +30,7 @@ import com.vernon.webspider.core.util.HtmlParserUtil;
 public class QiqishuScanUpdateJob
 		extends SpiderJob {
 
-	private final static Logger LOGGER = Logger.getLogger("QiqishuScanUpdateJob");
+	private final static Logger LOGGER = LoggerFactory.getLogger(QiqishuScanUpdateJob.class);
 	private boolean run = false;
 
 	private Task scanUpdateTask = new Task() {
@@ -41,6 +42,8 @@ public class QiqishuScanUpdateJob
 				List<String> spiderUrls = new ArrayList<String>();
 				spiderUrls.add("http://www.77shu.com/page_lastupdate_1.html");
 				String spiderUrl = spiderUrls.get(0);
+
+
 				Extractor extractor = new QiqishuUpdateExtractor(Charset.GBK.getValue());
 				String text;
 				try {
@@ -54,8 +57,11 @@ public class QiqishuScanUpdateJob
 					LOGGER.error(text + " extract is null!");
 					return;
 				}
-				// http://www.77shu.com/view/10/10350/3254630.html
-				LinkFilter filter = new LinkFilter("http://www.77shu.com/view/\\d+/\\d+/\\d+\\.html");
+
+                // LOGGER.info("text:{}",text);
+
+				// http://www.77shu.com/view/12/12442/3881165.html
+				LinkFilter filter = new LinkFilter(SiteId.QIQISHU.getDomain() + "/view/\\d+/\\d+/\\d+.html");
 				Set<String> bookUrls = HtmlParserUtil.extractLinks(text, filter, Charset.GBK.getValue());
 				LOGGER.info("bookUrls size:" + bookUrls.size());
 				for (String bookUrl : bookUrls) {
@@ -72,6 +78,7 @@ public class QiqishuScanUpdateJob
 	protected void doExecute() {
 		try {
 			if (!run) {
+                // 每个10s抓取一次
 				TaskExecutor.addTask(scanUpdateTask, 10000);
 				scanUpdateTask.execute();
 				run = true;

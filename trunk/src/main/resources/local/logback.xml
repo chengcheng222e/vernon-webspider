@@ -25,7 +25,7 @@
         </layout>
     </appender>
 
-    <logger name="com.vernon.oss">
+    <logger name="com.vernon.webspider">
         <level value="DEBUG" />
         <appender-ref ref="stdout" />
         <appender-ref ref="logfile" />

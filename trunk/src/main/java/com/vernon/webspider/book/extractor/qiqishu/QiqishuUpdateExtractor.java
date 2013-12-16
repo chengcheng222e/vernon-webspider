@@ -35,11 +35,11 @@ public class QiqishuUpdateExtractor
 
 	@Override
 	public String extract() throws ParserException {
-		NodeFilter filter = new AndFilter(
-				new TagNameFilter("div"), //
-				new HasAttributeFilter("id", "content")//
-		);
-		NodeList nodes = this.getParser().parse(filter);
+        NodeFilter filter = new AndFilter(
+                new TagNameFilter("div"),
+                new HasAttributeFilter("class", "book_list")
+        );
+        NodeList nodes = this.getParser().parse(filter);
 		if (null == nodes || nodes.size() > 1) {
 			LOGGER.info("提取最近更新div失败");
 			return null;

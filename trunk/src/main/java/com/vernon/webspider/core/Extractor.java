@@ -14,6 +14,8 @@ import com.vernon.webspider.core.http.HttpClientUtil;
 import com.vernon.webspider.core.http.URLWrap;
 import com.vernon.webspider.core.util.BCConvertUtil;
 import com.vernon.webspider.core.util.TextFilterUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 网页信息解析基类
@@ -37,6 +39,8 @@ public abstract class Extractor {
 
 	/** 编码 */
 	private String encoding;
+
+    private static final Logger logger = LoggerFactory.getLogger(Extractor.class);
 
 	protected Extractor() {
 		this.encoding = Charset.GBK.getValue();
@@ -98,21 +102,23 @@ public abstract class Extractor {
 	 * @param charset 编码
 	 * @throws org.htmlparser.util.ParserException 页面解析失败
 	 */
-	public void loadPageNotProxy(String url, Charset charset) throws ParserException {
-		try {
-			inputUrl = url;
-			URLWrap wrap = new URLWrap(getInputUrl());
-			Pair<Integer, String> pair = HttpClientUtil.getStringByGET(wrap, charset, Browser.FIREFOX_ON_WINXP, 10000);
-			if (null != pair && 200 == pair.getKey()) {
-				String result = pair.getValue();
-				loadSourceCode(result);
-			}
-		} catch (ParserException e) {
-			throw new ParserException("装载网页地址失败!" + e.getMessage());
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-	}
+    public void loadPageNotProxy(String url, Charset charset) throws ParserException {
+        try {
+            inputUrl = url;
+            URLWrap wrap = new URLWrap(getInputUrl());
+            Pair<Integer, String> pair = HttpClientUtil.getStringByGET(wrap, charset, Browser.FIREFOX_ON_WINXP, 10000);
+            if (null != pair && 200 == pair.getKey()) {
+                String result = pair.getValue();
+                loadSourceCode(result);
+            } else {
+                logger.error("loadPageNotProxy error : pair.getKey() = {}, url = {}", pair.getKey(), inputUrl);
+            }
+        } catch (ParserException e) {
+            throw new ParserException("装载网页地址失败!" + e.getMessage());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
 
 	/**
 	 * 装载需要的网页

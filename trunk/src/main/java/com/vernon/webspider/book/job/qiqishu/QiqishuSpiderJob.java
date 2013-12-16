@@ -42,12 +42,15 @@ public class QiqishuSpiderJob
 //            run = true;
 //        }
 
+
         // QIQISHU 最近更新2页
-		List<String> spiderUrls = new ArrayList<String>();
-		for (int i = 1 ; i < 3 ; i++) {
+        List<String> spiderUrls = new ArrayList<String>();
+        for (int i = 1; i < 3; i++) {
             // http://www.77shu.com/page_lastupdate_2.html
-			spiderUrls.add(SiteId.QIQISHU.getDomain() + "/page_lastupdate_" + i +".html");
-		}
+            spiderUrls.add(SiteId.QIQISHU.getDomain() + "/page_lastupdate_" + i + ".html");
+        }
+
+        // 这里是在干嘛呢?
 		Extractor extractor = new QiqishuSpiderPageExtractor(Charset.GBK.getValue());
 		Integer pageSize = 0;
 		for (String spiderUrl : spiderUrls) {
@@ -59,6 +62,8 @@ public class QiqishuSpiderJob
 				LOGGER.error(spiderUrl + " extract failed!");
 			}
 		}
+
+
 		String srcUrl = spiderUrls.get(0);
 		srcUrl = srcUrl.substring(0, srcUrl.length() - 1);
 		String visitUrl;

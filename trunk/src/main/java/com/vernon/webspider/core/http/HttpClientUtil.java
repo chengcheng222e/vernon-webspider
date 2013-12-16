@@ -22,6 +22,7 @@ import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
@@ -60,23 +61,26 @@ public class HttpClientUtil {
 	 * 静态初始化
 	 */
 	static {
-		HttpParams params = new BasicHttpParams();
-		ConnManagerParams.setMaxTotalConnections(params, DEFAULT_MAX_CONNECTION);
-		ConnManagerParams.setTimeout(params, DEFAULT_CONNECTION_TIMEOUT);
-		HttpConnectionParams.setConnectionTimeout(params, DEFAULT_CONNECTION_TIMEOUT);
-		HttpConnectionParams.setSoTimeout(params, DEFAULT_SO_TIMEOUT);
-		params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
-		// 模拟浏览器，解决一些服务器程序只允许浏览器访问的问题
-		params.setParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, Boolean.FALSE);
-		SchemeRegistry schemeRegistry = new SchemeRegistry();
-		schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-		schemeRegistry.register(new Scheme("https", PlainSocketFactory.getSocketFactory(), 443));
-		ClientConnectionManager cm = new ThreadSafeClientConnManager(params, schemeRegistry);
-
-		DefaultHttpClient client = new DefaultHttpClient(cm, params);
-		client.setHttpRequestRetryHandler(retryHandler);
-		client.addResponseInterceptor(decompressInterceptor);
-		httpClient = client;
+        httpClient = HttpClients.createDefault();
+        // 需要设置Http头
+        // 连接
+//		HttpParams params = new BasicHttpParams();
+//		ConnManagerParams.setMaxTotalConnections(params, DEFAULT_MAX_CONNECTION);
+//		ConnManagerParams.setTimeout(params, DEFAULT_CONNECTION_TIMEOUT);
+//		HttpConnectionParams.setConnectionTimeout(params, DEFAULT_CONNECTION_TIMEOUT);
+//		HttpConnectionParams.setSoTimeout(params, DEFAULT_SO_TIMEOUT);
+//		params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
+//		// 模拟浏览器，解决一些服务器程序只允许浏览器访问的问题
+//		params.setParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, Boolean.FALSE);
+//		SchemeRegistry schemeRegistry = new SchemeRegistry();
+//		schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+//		schemeRegistry.register(new Scheme("https", PlainSocketFactory.getSocketFactory(), 443));
+//		ClientConnectionManager cm = new ThreadSafeClientConnManager(params, schemeRegistry);
+//
+//		DefaultHttpClient client = new DefaultHttpClient(cm, params);
+//		client.setHttpRequestRetryHandler(retryHandler);
+//		client.addResponseInterceptor(decompressInterceptor);
+//		httpClient = client;
 	}
 	// 自动释放
 	static {
@@ -121,19 +125,26 @@ public class HttpClientUtil {
 		return pairs;
 	}
 
-	private static Header[] getInitHeaders(URLWrap wrap) {
-		return new Header[] { new BasicHeader("Accept", "*/*"), new BasicHeader("Accept-Language", "zh-cn,zh;q=0.5"),
-				new BasicHeader("Accept-Encoding", "gzip, deflate"),
-				new BasicHeader("Accept-Charset", "GB2312,utf-8;q=0.7,*;q=0.7"),
-				new BasicHeader("Referer", wrap.getURLRoot()) };
-	}
+    private static Header[] getInitHeaders(URLWrap wrap) {
+        return new Header[]{
+                new BasicHeader("Accept", "*/*"),
+                new BasicHeader("Accept-Language", "zh-cn,zh;q=0.5"),
+                new BasicHeader("Accept-Encoding", "gzip, deflate"),
+                new BasicHeader("Accept-Charset", "GB2312,utf-8;q=0.7,*;q=0.7"),
+                new BasicHeader("Referer", wrap.getURLRoot())
+        };
+    }
 
-	private static Header[] getInitHeaders(URLWrap wrap, String cookie) {
-		return new Header[] { new BasicHeader("Accept", "*/*"), new BasicHeader("Accept-Language", "zh-cn,zh;q=0.5"),
-				new BasicHeader("Accept-Encoding", "gzip, deflate"),
-				new BasicHeader("Accept-Charset", "GB2312,utf-8;q=0.7,*;q=0.7"),
-				new BasicHeader("Referer", wrap.getURLRoot()), new BasicHeader("Cookie", cookie) };
-	}
+    private static Header[] getInitHeaders(URLWrap wrap, String cookie) {
+        return new Header[]{
+                new BasicHeader("Accept", "*/*"),
+                new BasicHeader("Accept-Language", "zh-cn,zh;q=0.5"),
+                new BasicHeader("Accept-Encoding", "gzip, deflate"),
+                new BasicHeader("Accept-Charset", "GB2312,utf-8;q=0.7,*;q=0.7"),
+                new BasicHeader("Referer", wrap.getURLRoot()),
+                new BasicHeader("Cookie", cookie)
+        };
+    }
 
 	/**
 	 * 获取内容,使用Get方式
@@ -152,32 +163,34 @@ public class HttpClientUtil {
 		// 创建HttpClient实例
 		HttpGet get = null;
 		// 发送请求，得到响应
-		try {
-			List<NameValuePair> pairs = getNameValuePairs(urlWrap.getParameters());
-			String URL = urlWrap.getURLRootAndPath();
-			URL += "?";
-			if (charset == null) {
-				charset = Charset.UTF8;
-			}
-			if (pairs != null && pairs.size() > 0) {
-				URL += URLEncodedUtils.format(pairs, charset.getValue());
-			}
-			get = new HttpGet(URL);
-            // 暂时就用默认的 getInitHeaders
-//            get.setHeader(HttpHeaders.USER_AGENT, browser.getUA());
-//            get.setHeader(HttpHeaders.CONTENT_ENCODING, charset.getValue());
-//            get.setHeader(HttpHeaders.TIMEOUT, timeout + "");
-//            get.setHeader(HttpHeaders.REFERER, urlWrap.getURLRootAndPath());
+        try {
+            List<NameValuePair> pairs = getNameValuePairs(urlWrap
+                    .getParameters());
+            String URL = urlWrap.getURLRootAndPath();
+            URL += "?";
+            if (charset == null) {
+                charset = Charset.UTF8;
+            }
+            if (pairs != null && pairs.size() > 0) {
+                URL += URLEncodedUtils.format(pairs, charset.getValue());
+            }
+            get = new HttpGet(URL);
+            HttpParams params = get.getParams();
+            params.setParameter(CoreProtocolPNames.USER_AGENT, browser.getUA());
+            params.setParameter(CoreProtocolPNames.HTTP_CONTENT_CHARSET,
+                    charset.getValue());
+            params.setParameter(CoreConnectionPNames.SO_TIMEOUT, timeout);
+            get.setParams(params);
             get.setHeaders(getInitHeaders(urlWrap));
-			return httpClient.execute(get, new StringResponseHandler(charset));
-		} catch (ClientProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {// 记得一定要释放资源
-			abortConnection(get);
-		}
-		return null;
+            return httpClient.execute(get, new StringResponseHandler(charset));
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {// 记得一定要释放资源
+            abortConnection(get);
+        }
+        return null;
 	}
 
 	/**
