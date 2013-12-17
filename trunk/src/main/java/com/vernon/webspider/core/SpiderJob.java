@@ -15,7 +15,7 @@ import org.quartz.JobExecutionException;
 public abstract class SpiderJob
 	implements Job {
 
-	protected Logger logger = Logger.getLogger(this.getClass());
+	private Logger logger = Logger.getLogger(this.getClass());
 
 	@Override
 	public final void execute(JobExecutionContext context) throws JobExecutionException {

@@ -1,4 +1,4 @@
-package com.vernon.webspider.book.domain;
+package com.vernon.webspider.book.domain.base;
 
 import java.io.Serializable;
 

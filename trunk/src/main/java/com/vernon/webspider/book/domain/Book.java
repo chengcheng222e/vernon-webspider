@@ -5,6 +5,8 @@
  */
 package com.vernon.webspider.book.domain;
 
+import com.vernon.webspider.book.domain.base.BaseBook;
+
 import java.io.Serializable;
 
 /**

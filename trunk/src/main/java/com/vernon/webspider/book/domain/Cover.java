@@ -5,6 +5,7 @@
  */
 package com.vernon.webspider.book.domain;
 
+import com.vernon.webspider.book.domain.base.BaseCover;
 import com.vernon.webspider.core.util.ResourceUtil;
 
 /**

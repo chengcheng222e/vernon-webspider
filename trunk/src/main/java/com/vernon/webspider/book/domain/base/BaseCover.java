@@ -3,7 +3,7 @@
  *
  * Copyright 2010 A8 Digital Music Holdings Limited. All Rights Reserved.
  */
-package com.vernon.webspider.book.domain;
+package com.vernon.webspider.book.domain.base;
 
 import java.io.Serializable;
 import java.util.Date;
