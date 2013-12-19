@@ -3,9 +3,9 @@
         PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="com.vernon.webspider.book.dao.BookDao">
+<mapper namespace="com.vernon.webspider.book.dao.ChapterDao">
 
-    <select id="findBySpiderUrl" resultType="com.vernon.webspider.book.domain.Book">
+    <select id="find" resultType="com.vernon.webspider.book.domain.Chapter">
 
 	</select>
 

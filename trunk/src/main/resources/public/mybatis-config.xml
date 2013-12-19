@@ -31,6 +31,8 @@
 
     <mappers>
         <mapper resource="mapper/BookMapper.xml" />
+        <mapper resource="mapper/CategoryMapper.xml" />
+        <mapper resource="mapper/ChapterMapper.xml" />
     </mappers>
 
 </configuration>
