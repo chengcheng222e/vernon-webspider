@@ -6,8 +6,10 @@
 package com.vernon.webspider.book.job.qiqishu;
 
 import com.vernon.webspider.book.domain.Book;
+import com.vernon.webspider.book.domain.Chapter;
 import com.vernon.webspider.book.extractor.qiqishu.QiqishuUpdateExtractor;
 import com.vernon.webspider.book.service.spider.BookSpiderService;
+import com.vernon.webspider.book.service.spider.ChapterSpiderService;
 import com.vernon.webspider.book.util.SiteId;
 import com.vernon.webspider.book.util.TextParseUtil;
 import com.vernon.webspider.core.Extractor;
@@ -27,52 +29,54 @@ import java.util.Set;
 
 /**
  * 亲亲小说网扫描更新工作
- * 
- * @author Vernon.Chen
  *
+ * @author Vernon.Chen
  */
 public class QiqishuScanUpdateJob
-		extends SpiderJob {
+        extends SpiderJob {
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(QiqishuScanUpdateJob.class);
-	private boolean run = false;
+    private final static Logger LOGGER = LoggerFactory.getLogger(QiqishuScanUpdateJob.class);
+    private boolean run = false;
     private BookSpiderService bookSpiderService = new BookSpiderService();
+    private ChapterSpiderService chapterSpiderService = new ChapterSpiderService();
 
-	private Task scanUpdateTask = new Task() {
+    private Task scanUpdateTask = new Task() {
         private LinkDB linkDB = new LinkDB();
 
-		@Override
-		public void execute() throws Exception {
-			try {
-				LOGGER.info("scanUpdateTask start!");
-				// 获取爬取每日更新的url地址
-				List<String> spiderUrls = new ArrayList<String>();
-				spiderUrls.add("http://www.77shu.com/page_lastupdate_1.html");
-				String spiderUrl = spiderUrls.get(0);
+        @Override
+        public void execute() throws Exception {
+            try {
+                LOGGER.info("scanUpdateTask start!");
+                // 获取爬取每日更新的url地址
+                List<String> spiderUrls = new ArrayList<String>();
+                spiderUrls.add("http://www.77shu.com/page_lastupdate_1.html");
+                String spiderUrl = spiderUrls.get(0);
 
 
-				Extractor extractor = new QiqishuUpdateExtractor(Charset.GBK.getValue());
-				String text;
-				try {
-					extractor.loadPageNotProxy(spiderUrl, Charset.GBK);
-					text = (String) extractor.extract();
-				} catch (Exception e) {
-					LOGGER.error(spiderUrl + "extract error!", e);
-					return;
-				}
-				if (null == text || "".equals(text)) {
-					LOGGER.error(text + " extract is null!");
-					return;
-				}
+                Extractor extractor = new QiqishuUpdateExtractor(Charset.GBK.getValue());
+                String text;
+                try {
+                    extractor.loadPageNotProxy(spiderUrl, Charset.GBK);
+                    text = (String) extractor.extract();
+                } catch (Exception e) {
+                    LOGGER.error(spiderUrl + "extract error!", e);
+                    return;
+                }
+                if (null == text || "".equals(text)) {
+                    LOGGER.error(text + " extract is null!");
+                    return;
+                }
+
                 // LOGGER.info("text:{}",text);
-				// 书的地址: http://www.77shu.com/view/12/12442/
-				LinkFilter filter = new LinkFilter(SiteId.QIQISHU.getDomain() + "/view/\\d+/\\d+/");
-				Set<String> bookUrls = HtmlParserUtil.extractLinks(text, filter, Charset.GBK.getValue());
-				LOGGER.info("bookUrls size:" + bookUrls.size());
-				for (String bookUrl : bookUrls) {
+
+                // 书的地址: http://www.77shu.com/view/12/12442/
+                LinkFilter filter = new LinkFilter(SiteId.QIQISHU.getDomain() + "/view/\\d+/\\d+/");
+                Set<String> bookUrls = HtmlParserUtil.extractLinks(text, filter, Charset.GBK.getValue());
+                LOGGER.info("bookUrls size:" + bookUrls.size());
+                for (String bookUrl : bookUrls) {
                     LOGGER.info("bookUrl : {}", bookUrl);
                     linkDB.addUnvisitedUrl(bookUrl);
-				}
+                }
 
                 Book book;
                 String bookUrl;
@@ -83,39 +87,49 @@ public class QiqishuScanUpdateJob
                     LOGGER.info("update book url : {}", bookUrl);
                     book = bookSpiderService.getBySpiderUrl(bookUrl);
                     if (book != null) {
-                        LOGGER.info(" scan book('{}')", book.getAuthorId());
+                        LOGGER.info(" scan book('{}')", book.getBookId());
                         // 章节: http://www.77shu.com/view/2/2475/3883029.html
                         String regex = book.getMenuSpiderUrl() + "\\d+.html";
-                        // 第一次出现,也就是最新
-                        String chapterUrl = TextParseUtil.parse(text, regex, 0, 0);
+                        String chapterUrl = TextParseUtil.parse(text, regex, 0, 0); // 第一次出现,也就是最新
                         LOGGER.info(" last chapter url: " + chapterUrl);
-                        // 判断章节是否存在
-                        // 如果存在, 更新说得状态
+                        Chapter chapter = chapterSpiderService.get(book.getBookId(), chapterUrl);
+                        if (chapter != null) {
+                            LOGGER.info("book({}) is new last !", book.getBookId());
+                            continue;
+                        }
+                        LOGGER.info("book({}) is not new last !", book.getBookId());
+                        // 如果存在, 更新状态
+                        boolean result = bookSpiderService.modifySpiderState(book.getBookId(), true);
+                        if (result) {
+                            LOGGER.info("modify book({}) spiderState(true) success !");
+                        } else {
+                            LOGGER.info("modify book({}) spiderState(true) failed !");
+                        }
                     }
                 }
-				LOGGER.info("scanUpdateTask over!");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	};
+                LOGGER.info("scanUpdateTask over!");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
 
-	@Override
-	protected void doExecute() {
-		try {
-			if (!run) {
+    @Override
+    protected void doExecute() {
+        try {
+            if (!run) {
                 // 每个10s抓取一次
-				TaskExecutor.addTask(scanUpdateTask, 10000);
-				scanUpdateTask.execute();
-				run = true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+                TaskExecutor.addTask(scanUpdateTask, 10000);
+                scanUpdateTask.execute();
+                run = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	public static void main(String[] args) {
-		QiqishuScanUpdateJob job = new QiqishuScanUpdateJob();
-		job.doExecute();
-	}
+    public static void main(String[] args) {
+        QiqishuScanUpdateJob job = new QiqishuScanUpdateJob();
+        job.doExecute();
+    }
 }

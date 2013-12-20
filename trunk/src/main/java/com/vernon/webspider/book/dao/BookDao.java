@@ -18,7 +18,14 @@ public interface BookDao {
      * @param spiderUrl
      * @return
      */
-    public Book findBySpiderUrl(@Param("spiderUrl") String spiderUrl) ;
+    public Book findBySpiderUrl(@Param("spiderUrl") String spiderUrl);
 
-
+    /**
+     * 修改书的抓取状态
+     *
+     * @param bookId
+     * @param spiderState
+     * @return
+     */
+    public int modifySpiderState(@Param("bookId") int bookId, @Param("spiderState") boolean spiderState);
 }

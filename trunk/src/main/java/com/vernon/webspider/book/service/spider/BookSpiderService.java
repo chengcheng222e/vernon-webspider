@@ -30,4 +30,22 @@ public class BookSpiderService {
             session.close();
         }
     }
+
+    /**
+     * 修改书的抓取状态
+     *
+     * @param bookId
+     * @param spiderState
+     * @return
+     */
+    public boolean modifySpiderState(int bookId, boolean spiderState) {
+        SqlSession session = DaoFactory.getSqlSessionFactory().openSession();
+        try {
+            BookDao dao = session.getMapper(BookDao.class);
+            return dao.modifySpiderState(bookId, spiderState) > 0 ? true : false;
+        } finally {
+            session.close();
+        }
+    }
+
 }
