@@ -28,4 +28,20 @@ public interface BookDao {
      * @return
      */
     public int modifySpiderState(@Param("bookId") int bookId, @Param("spiderState") boolean spiderState);
+
+    /**
+     * 保存
+     *
+     * @param book
+     * @return
+     */
+    public int save(@Param("book") Book book);
+
+    /**
+     * 修改
+     *
+     * @param book
+     * @return
+     */
+    public int update(@Param("book") Book book);
 }

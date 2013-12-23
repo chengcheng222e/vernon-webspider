@@ -18,7 +18,7 @@ import com.vernon.webspider.core.util.ThreadUtil;
 public class BookSpiderTask
 	implements Task {
 
-	private static final Logger LOGGER = Logger.getLogger("BookSpiderTask");
+	private static final Logger LOGGER = Logger.getLogger(BookSpiderTask.class);
 	private Extractor extractor;
 
 	public BookSpiderTask(Extractor extractor) {

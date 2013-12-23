@@ -20,21 +20,18 @@ import java.util.Properties;
 public class Constant
 	implements Serializable {
 
-	public static String DOMAIN = "F:/";
+    public static String DOMAIN = "F:/";
+    public static String SPACE_URL = DOMAIN + "/space/";
+    public static String RESOURCE_BASE_DIR = "F:";
+    public static String RESOURCE_BASE_URL = "F:";
+    public static String CSS_BASE_URL = "F:";
+    public static String ICON_BASE_DIR = "F:";
+    public static String ICON_BASE_URL = "F:";
+    private static Properties properties = new Properties();
+    public final static String QUEUE_SPIDER_BOOK_URL = "spiderBookUrl";
+    public final static String QUEUE_SPIDER_BOOK_INFO = "spiderBookInfo";
+    public static final String QUEUE_SPIDER_CHAPTER = "spiderChapter";
 
-	public static String SPACE_URL = DOMAIN + "/space/";
-
-	public static String RESOURCE_BASE_DIR = "F:";
-
-	public static String RESOURCE_BASE_URL = "F:";
-
-	public static String CSS_BASE_URL = "F:";
-
-	public static String ICON_BASE_DIR = "F:";
-
-	public static String ICON_BASE_URL = "F:";
-
-	private static Properties properties = new Properties();
 
 	static {
 		try {
@@ -88,6 +85,10 @@ public class Constant
 			e.printStackTrace();
 		}
 	}
+
+
+
+
 
 	public static String getProperty(String key) {
 		return getProperty(key, "");

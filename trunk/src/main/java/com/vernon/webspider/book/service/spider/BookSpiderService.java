@@ -48,4 +48,36 @@ public class BookSpiderService {
         }
     }
 
+    /**
+     * 创建
+     *
+     * @param book
+     * @return
+     */
+    public int create(Book book) {
+        SqlSession session = DaoFactory.getSqlSessionFactory().openSession();
+        try {
+            BookDao dao = session.getMapper(BookDao.class);
+            return dao.save(book);
+        } finally {
+            session.close();
+        }
+    }
+
+    /**
+     * 修改
+     *
+     * @param book
+     * @return
+     */
+    public boolean modify(Book book) {
+        SqlSession session = DaoFactory.getSqlSessionFactory().openSession();
+        try {
+            BookDao dao = session.getMapper(BookDao.class);
+            return dao.update(book) > 0 ? true : false;
+        } finally {
+            session.close();
+        }
+    }
+
 }
