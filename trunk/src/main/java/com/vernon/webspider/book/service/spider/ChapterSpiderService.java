@@ -5,6 +5,8 @@ import com.vernon.webspider.book.dao.base.DaoFactory;
 import com.vernon.webspider.book.domain.Chapter;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: chenyuan
@@ -27,6 +29,23 @@ public class ChapterSpiderService {
         try {
             ChapterDao dao = session.getMapper(ChapterDao.class);
             return dao.find(bookId, spiderUrl);
+        } finally {
+            session.close();
+        }
+    }
+
+    /**
+     * 获取可以抓取的章节信息
+     *
+     * @param pageIndex
+     * @param limit
+     * @return
+     */
+    public List<Chapter> getListForSpider(int pageIndex, int limit) {
+        SqlSession session = DaoFactory.getSqlSessionFactory().openSession();
+        try {
+            ChapterDao dao = session.getMapper(ChapterDao.class);
+            return dao.getListForSpider(pageIndex * limit, limit);
         } finally {
             session.close();
         }

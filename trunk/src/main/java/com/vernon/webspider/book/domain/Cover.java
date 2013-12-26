@@ -1,8 +1,3 @@
-/**
- * Cover.java,2010-10-25
- *
- * Copyright 2010 A8 Digital Music Holdings Limited. All Rights Reserved.
- */
 package com.vernon.webspider.book.domain;
 
 import com.vernon.webspider.book.domain.base.BaseCover;

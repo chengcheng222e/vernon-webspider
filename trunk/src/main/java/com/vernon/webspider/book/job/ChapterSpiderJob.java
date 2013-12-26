@@ -16,19 +16,8 @@ public class ChapterSpiderJob extends SpiderJob {
 
     private final static Logger logger = LoggerFactory.getLogger(ChapterSpiderJob.class);
 
-    private Task chapterSpiderTask = new Task() {
-        @Override
-        public void execute() throws Exception {
-            //To change body of implemented methods use File | Settings | File Templates.
-        }
-    };
-
-
-    private Task chapterPersistTask = new Task() {
-        @Override
-        public void execute() throws Exception {
-        }
-    };
+    private Task chapterSpiderTask = new ChapterSpiderTask();
+    private Task chapterPersistTask = new ChapterPersistTask();
 
 
     @Override

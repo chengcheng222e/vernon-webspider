@@ -3,6 +3,8 @@ package com.vernon.webspider.book.dao;
 import com.vernon.webspider.book.domain.Chapter;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Vernon.Chen
@@ -20,4 +22,13 @@ public interface ChapterDao {
      * @return
      */
     public Chapter find(@Param("bookId") int bookId, @Param("spiderUrl") String spiderUrl);
+
+    /**
+     * 获取章节
+     *
+     * @param fromIndex
+     * @param limit
+     * @return
+     */
+    public List<Chapter> getListForSpider(@Param("pageIndex")int fromIndex, @Param("limit") int limit);
 }

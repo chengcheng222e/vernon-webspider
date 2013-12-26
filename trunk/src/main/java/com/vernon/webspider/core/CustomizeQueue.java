@@ -1,8 +1,3 @@
-/**
- * CustomizeQueue.java,2010-10-14
- *
- * Copyright 2010 A8 Digital Music Holdings Limited. All Rights Reserved.
- */
 package com.vernon.webspider.core;
 
 import java.util.LinkedList;

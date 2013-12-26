@@ -1,8 +1,3 @@
-/**
- * QiqishuScanUpdateJob.java,2010-10-27
- *
- * Copyright 2010 A8 Digital Music Holdings Limited. All Rights Reserved.
- */
 package com.vernon.webspider.book.job.qiqishu;
 
 import com.vernon.webspider.book.domain.Book;

@@ -11,13 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p>Title: 抓取程序模板抽象类</p>
- * <p>Description: PageTemplatePortal</p>
- * <p>Copyright: Copyright © 2010
- * <p>Company: A8 Digital Music Holdings Limited.</p>
  *
- * @author zaniel.zhao
- * @version 1.0 2010-8-12
  */
 public abstract class PageTemplatePortal
 		extends AbstractSpider {

@@ -17,6 +17,11 @@ public class ChapterPersistTask implements Task {
 
     @Override
     public void execute() throws Exception {
-        //To change body of implemented methods use File | Settings | File Templates.
+        LOGGER.info(" chapterPersistTask start !");
+
+
+
+        LOGGER.info(" chapterPersistTask over !");
+
     }
 }
