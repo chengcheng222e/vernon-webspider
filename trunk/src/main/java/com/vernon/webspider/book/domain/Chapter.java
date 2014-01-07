@@ -60,4 +60,12 @@ public class Chapter extends BaseChapter{
         }
         return getSpiderUrl();
     }
+
+    @Override
+    public String toString() {
+        return "Chapter{" +
+                "bookName='" + bookName + '\'' +
+                ", content='" + content + '\'' +
+                "} " + super.toString();
+    }
 }
