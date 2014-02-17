@@ -194,4 +194,50 @@ public abstract class Extractor {
 		}
 		return "";
 	}
+
+    /**
+     * get Matcher by source and regex
+     *
+     * @param source
+     * @param regex
+     * @return
+     * @author Vernon.Chen
+     */
+    protected final static Matcher getMatcher(String source, String regex) {
+        return Pattern.compile(regex, Pattern.CASE_INSENSITIVE).matcher(new StringBuilder(source));
+    }
+
+    /**
+     *
+     *
+     * @param source
+     * @param regex
+     * @param groupIndex
+     * @return
+     */
+    public final static String[] getPropArray(String source, String regex, int groupIndex) {
+        try {
+            Matcher matcher = getMatcher(source, regex);
+            int cursor = 0;
+            String[] values = new String[16];
+            while (matcher.find()) {
+                if (cursor == values.length) {
+                    String[] swap = new String[values.length + values.length / 2];
+                    System.arraycopy(values, 0, swap, 0, values.length);
+                    values = swap;
+                }
+                values[cursor] = matcher.group(groupIndex);
+                cursor++;
+            }
+            if (cursor < values.length) {
+                String[] swap = new String[cursor];
+                System.arraycopy(values, 0, swap, 0, cursor);
+                values = swap;
+            }
+            return values;
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
